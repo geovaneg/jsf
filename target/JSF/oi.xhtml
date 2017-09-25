@@ -2,16 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-	<h:title>texte geovane</h:title>
+	<h:title>Calculadora</h:title>
 </h:head>
 
 <h:body>
 	<h:form>
-		<i>Ola galera</i>
-		<strong>Ola galera</strong>
-		<h:inputText     name="primeiroCampo" id="primeiroCampo" value="ola mundo"/>
-		<h:comandButton  name="btnPrimeiro"   id="btnPrimeiro"   value="Meu primeiro botao"/>
-		<h:inputTextarea name="txtArea" 	  id="txtArea" cols="20" rows="30"/>
+		<h:inputText      name="primeiroValor" id="primeiroValor" value="#{controlador.primeiroValor}"/> 
+		<h:inputText      name="segundoValor"  id="segundoValor"  value="#{controlador.segundoValor}"/>
+		<br/>
+		<h:commandButton  name="bt1"   id="bt1"   value="Somar"       action="#{controlador.somar()}"/>
+		<h:commandButton  name="bt2"   id="bt2"   value="Subtrair"    action="#{controlador.subtrair()}"/> 
+		<h:commandButton  name="bt3"   id="bt3"   value="Multiplicar" action="#{controlador.multiplicar()}"/> 
+		<h:commandButton  name="bt4"   id="bt4"   value="Dividir"     action="#{controlador.dividir()}"/>
+		<br/>
+		
+		<h:outputLabel value="Resultado: #{controlador.resultado}"/>
+		<br/><br/>
+		
+		<h:inputText      name="texto" id="palavraEntrada" value="#{controlador.palavraEntrada}"/> 
+		<h:commandButton  name="btA"   id="btA"   value="Maiusculo"    action="#{controlador.maiusculo()}"/>
+		<h:commandButton  name="btB"   id="btB"   value="Minusculo"    action="#{controlador.minusculo()}"/> 
+		<br/>
+		
+		<h:outputLabel value="Nova Palavra: #{controlador.palavraAlterada}"/>
 	</h:form>
 </h:body>
 
