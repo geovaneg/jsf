@@ -1,75 +1,98 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	   lang="en">
 <h:head>
 	<h:title>Calculadora</h:title>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+	      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" 
+	      crossorigin="anonymous"/>      
 </h:head>
 
 <h:body>
 	<h:form>
-		<h:inputText name="primeiroValor" id="primeiroValor"
-			value="#{controlador.primeiroValor}" />
-		<h:inputText name="segundoValor" id="segundoValor"
-			value="#{controlador.segundoValor}" />
-		<br />
-		<h:commandButton name="bt1" id="bt1" value="Somar"
-			action="#{controlador.somar()}" />
-		<h:commandButton name="bt2" id="bt2" value="Subtrair"
-			action="#{controlador.subtrair()}" />
-		<h:commandButton name="bt3" id="bt3" value="Multiplicar"
-			action="#{controlador.multiplicar()}" />
-		<h:commandButton name="bt4" id="bt4" value="Dividir"
-			action="#{controlador.dividir()}" />
-		<br />
-
-		<h:outputLabel value="Resultado: #{controlador.resultado}" />
-		<br />
-		<br />
-
-		<h:inputText name="palavraEntrada" id="palavraEntrada"
-			value="#{controlador.palavraEntrada}" />
-		<br />
-		<h:commandButton name="btA" id="btA" value="Maiusculo"
-			action="#{controlador.maiusculo()}" />
-		<h:commandButton name="btB" id="btB" value="Minusculo"
-			action="#{controlador.minusculo()}" />
-		<br />
-
-		<h:outputLabel value="Nova Palavra: #{controlador.palavraAlterada}" />
+		<div class="form-group">
+			<h:inputText name="primeiroValor" id="primeiroValor"
+				value="#{controlador.primeiroValor}" />
+			<h:inputText name="segundoValor" id="segundoValor"
+				value="#{controlador.segundoValor}" />
+			<br />
+			<h:commandButton name="bt1" id="bt1" value="Somar"
+				action="#{controlador.somar()}" />
+			<h:commandButton name="bt2" id="bt2" value="Subtrair"
+				action="#{controlador.subtrair()}" />
+			<h:commandButton name="bt3" id="bt3" value="Multiplicar"
+				action="#{controlador.multiplicar()}" />
+			<h:commandButton name="bt4" id="bt4" value="Dividir"  
+				action="#{controlador.dividir()}" />
+			<br />
+	
+			<h:outputLabel value="Resultado: #{controlador.resultado}" />
+		</div>
 		<br />
 		<br />
-
-		<h:selectBooleanCheckbox value="1" id="opcao1" name="opcao1">Opção 1:</h:selectBooleanCheckbox>
-		<h:selectBooleanCheckbox value="2" id="opcao2" name="opcao2">Opção 2:</h:selectBooleanCheckbox>
-		<h:selectBooleanCheckbox value="3" id="opcao3" name="opcao3">Opção 3:</h:selectBooleanCheckbox>
+		
+		<div class="form-group">
+			<h:inputText name="palavraEntrada" id="palavraEntrada"
+				value="#{controlador.palavraEntrada}" />
+			<br />
+			<h:commandButton name="btA" id="btA" value="Maiusculo"
+				action="#{controlador.maiusculo()}" />
+			<h:commandButton name="btB" id="btB" value="Minusculo"
+				action="#{controlador.minusculo()}" />
+			<br />
+	
+			<h:outputLabel value="Nova Palavra: #{controlador.palavraAlterada}" />
+		</div>
 		<br />
 		<br />
-
-		<h:selectOneMenu id="selectItem" value="#{controlador.estados}">
-			<f:selectItems itemValue="#{uf.estados}" itemLabel="#{uf}" var="uf"/> 
-		</h:selectOneMenu>
+		
+		<div class="form-group">
+			<h:selectBooleanCheckbox value="1" id="opcao1" name="opcao1">Opção 1:</h:selectBooleanCheckbox>
+			<h:selectBooleanCheckbox value="2" id="opcao2" name="opcao2">Opção 2:</h:selectBooleanCheckbox>
+			<h:selectBooleanCheckbox value="3" id="opcao3" name="opcao3">Opção 3:</h:selectBooleanCheckbox>
+		</div>
 		<br />
 		<br />
 		
 		
-		<h:selectOneRadio value="#{controlador.valorOpcao}">
-			<f:selectItem itemValue="1" itemLabel="opcao1" />
-		    <f:selectItem itemValue="2" itemLabel="opcao2" />
-		    <f:selectItem itemValue="3" itemLabel="opcao3" />
-		</h:selectOneRadio>
+		<div class="form-group">
+			<h:outputLabel value="Estados do sul do Brasil: "/> 
+			<h:selectOneMenu id="estadosSul" value="#{controlador.uf}">
+				<f:selectItems  value='#{controlador.listaEstados}'/>
+			</h:selectOneMenu>
+		</div>
 		<br />
 		<br />
 		
-		<h:inputText name="real" id="real"
-			value="#{controlador.real}" />
-		<h:commandButton name="btReal" id="btReal" value="Formata Real"
-			action="#{controlador.formataReal()}" />
-		<br/>		
-		<h:outputLabel value="Nova Palavra: #{controlador.realFormatado}" />
-		
+		<div class="form-group">
+			<h:inputText name="real" id="real"
+				value="#{controlador.real}" />
+			<h:commandButton name="btReal" id="btReal" value="Formata Real"
+				action="#{controlador.formataReal()}" />
+			<br/>		
+			<h:outputLabel value="Nova Palavra: #{controlador.realFormatado}" />
+		</div>
 		
 	</h:form>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+			crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+			integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+			crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+			integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+			crossorigin="anonymous">
+	</script>
+	
 </h:body>
 
 </html>

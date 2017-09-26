@@ -16,7 +16,7 @@ public class Controlador {
 	private Integer valorOpcao;
 	private Double real;
 	private String realFormatado;
-	private List<String> estados = new ArrayList<String>(); 
+	private EstadosDoSul uf;
 	
 	public Integer getValorOpcao() {
 		return valorOpcao;
@@ -24,14 +24,6 @@ public class Controlador {
 
 	public void setValorOpcao(Integer valorOpcao) {
 		this.valorOpcao = valorOpcao;
-	}
-
-	public List<String> getEstados() {
-		return estados;
-	}
-
-	public void setEstados(List<String> estados) {
-		this.estados = estados;
 	}
 
 	public String getPalavraEntrada() {
@@ -100,15 +92,6 @@ public class Controlador {
 		palavraAlterada = palavraEntrada.toLowerCase();
 	}
 	
-	public void iniciaEstados() {  
-	    estados.add("Parana");
-	    estados.add("Santa Catarina");
-	    estados.add("Rio Grande do Sul");  
-	}
-	
-	public Controlador() {
-		iniciaEstados();
-	}
 
 	public Double getReal() {
 		return real;
@@ -128,6 +111,18 @@ public class Controlador {
 
 	public void setRealFormatado(String realFormatado) {
 		this.realFormatado = realFormatado;
+	}
+	
+	public EstadosDoSul[] getListaEstados() {
+		return uf.values();
+	}
+	
+	public EstadosDoSul getUf() {
+		return uf;
+	}
+
+	public void setUf(EstadosDoSul uf) {
+		this.uf = uf;
 	}
 	
 
