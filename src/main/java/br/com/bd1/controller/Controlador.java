@@ -1,6 +1,7 @@
 package br.com.bd1.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -12,9 +13,19 @@ public class Controlador {
 	private Double segundoValor;
 	private Double resultado;
 	private String palavraEntrada;
-	
+	private Integer valorOpcao;
+	private Double real;
+	private String realFormatado;
 	private List<String> estados = new ArrayList<String>(); 
 	
+	public Integer getValorOpcao() {
+		return valorOpcao;
+	}
+
+	public void setValorOpcao(Integer valorOpcao) {
+		this.valorOpcao = valorOpcao;
+	}
+
 	public List<String> getEstados() {
 		return estados;
 	}
@@ -93,6 +104,30 @@ public class Controlador {
 	    estados.add("Parana");
 	    estados.add("Santa Catarina");
 	    estados.add("Rio Grande do Sul");  
+	}
+	
+	public Controlador() {
+		iniciaEstados();
+	}
+
+	public Double getReal() {
+		return real;
+	}
+
+	public void setReal(Double real2) {
+		real = real2;
+	}
+	
+	public void formataReal() {
+		realFormatado = "R$ " + String.format("%.2f", real);
+	}
+
+	public String getRealFormatado() {
+		return realFormatado;
+	}
+
+	public void setRealFormatado(String realFormatado) {
+		this.realFormatado = realFormatado;
 	}
 	
 

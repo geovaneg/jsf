@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<h:title>Calculadora</h:title>
 </h:head>
@@ -45,9 +46,28 @@
 		<br />
 		<br />
 
-		<h:selectOneMenu id="selectEstado" value="#{controlador.iniciaEstados}">
-			<f:selectItem itemValue="#{controlador.estados}" itemLabel="#{controlador.estados}" /> 
+		<h:selectOneMenu id="selectItem" value="#{controlador.estados}">
+			<f:selectItems itemValue="#{uf.estados}" itemLabel="#{uf}" var="uf"/> 
 		</h:selectOneMenu>
+		<br />
+		<br />
+		
+		
+		<h:selectOneRadio value="#{controlador.valorOpcao}">
+			<f:selectItem itemValue="1" itemLabel="opcao1" />
+		    <f:selectItem itemValue="2" itemLabel="opcao2" />
+		    <f:selectItem itemValue="3" itemLabel="opcao3" />
+		</h:selectOneRadio>
+		<br />
+		<br />
+		
+		<h:inputText name="real" id="real"
+			value="#{controlador.real}" />
+		<h:commandButton name="btReal" id="btReal" value="Formata Real"
+			action="#{controlador.formataReal()}" />
+		<br/>		
+		<h:outputLabel value="Nova Palavra: #{controlador.realFormatado}" />
+		
 		
 	</h:form>
 </h:body>
